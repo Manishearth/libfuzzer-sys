@@ -419,6 +419,8 @@ int FuzzerDriver(int *argc, char ***argv, UserCallback Callback) {
   Options.RssLimitMb = Flags.rss_limit_mb;
   if (Flags.runs >= 0)
     Options.MaxNumberOfRuns = Flags.runs;
+  if (Flags.num_crashes >= 0)
+    Options.MaxNumberOfCrashes = Flags.num_crashes;
   if (!Inputs->empty() && !Flags.minimize_crash_internal_step)
     Options.OutputCorpus = (*Inputs)[0];
   Options.ReportSlowUnits = Flags.report_slow_units;

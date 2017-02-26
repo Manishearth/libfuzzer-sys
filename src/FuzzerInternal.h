@@ -150,6 +150,7 @@ private:
   bool RunningCB = false;
 
   size_t TotalNumberOfRuns = 0;
+  size_t TotalNumberOfCrashes = 0;
   size_t NumberOfNewUnitsAdded = 0;
 
   bool HasMoreMallocsThanFrees = false;

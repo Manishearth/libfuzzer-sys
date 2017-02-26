@@ -36,6 +36,7 @@ struct FuzzingOptions {
   bool ShuffleAtStartUp = true;
   bool PreferSmall = true;
   size_t MaxNumberOfRuns = -1L;
+  int MaxNumberOfCrashes = 1;
   int ReportSlowUnits = 10;
   bool OnlyASCII = false;
   std::string OutputCorpus;

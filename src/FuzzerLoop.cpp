@@ -283,8 +283,13 @@ void Fuzzer::CrashCallback() {
          "crash reports.\n");
   Printf("SUMMARY: libFuzzer: deadly signal\n");
   DumpCurrentUnit("crash-");
-  PrintFinalStats();
-  exit(Options.ErrorExitCode);
+  if (Options.MaxNumberOfCrashes > 0 &&
+      Options.MaxNumberOfCrashes <= TotalNumberOfCrashes) {
+    PrintFinalStats();
+    exit(Options.ErrorExitCode);
+  } else {
+    TotalNumberOfCrashes++;
+  }
 }
 
 void Fuzzer::InterruptCallback() {
